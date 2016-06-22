@@ -1,7 +1,7 @@
 {
-  "name": "recorder-server",
+  "name": "baseline-server",
   "version": "1.0.0",
-  "description": "Server for recording user actions on a webpage.",
+  "description": "Node.js app in front of PostgreSQL.",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
