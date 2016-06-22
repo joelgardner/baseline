@@ -1,0 +1,24 @@
+#!/usr/bin/env node
+
+var postgrator = require('postgrator'),
+    dbconf = require("config").database;
+
+postgrator.setConfig({
+    migrationDirectory: __dirname + '/../../database/migrations',
+    driver: 'pg',
+    host: dbconf.host,
+    database: dbconf.name,
+    username: dbconf.user,
+    password: dbconf.password
+});
+
+postgrator.migrate('max', function (err, migrations) {
+    if (err) {
+        console.log('Error: ' + err)
+    } else {
+        console.log('Migrations: ' + migrations)
+    }
+    postgrator.endConnection(function () {
+        console.log("Database migrations done!")
+    });
+});

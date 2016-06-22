@@ -1,0 +1,131 @@
+/* Coolors Exported Palette - coolors.co/695958-b6c8a9-c8ead3-cfffe5-cedada */
+/**
+ * LAYOUT
+ */
+#main {
+  padding-top: 54px; }
+
+body {
+  background-color: #cedada; }
+
+/**
+ * CARDS
+ */
+.card {
+  background-color: #FBFBF8; }
+
+/**
+ * NAVBAR
+ */
+nav.navbar {
+  background-color: #695958;
+  padding: 0 10px;
+  height: 30px; }
+  nav.navbar a.nav-link {
+    padding: 2px 0 0 0;
+    color: #b6c8a9; }
+    nav.navbar a.nav-link:hover, nav.navbar a.nav-link:focus {
+      color: #c8ead3; }
+
+nav.subnav {
+  margin-top: 30px;
+  background-color: #b6c8a9;
+  height: 20px; }
+
+/**
+ * LOGIN
+ */
+.login-container .signup-group .btn {
+  width: 100px; }
+
+.login-card {
+  margin-top: 10px; }
+  .login-card .input-group {
+    margin-bottom: 10px; }
+
+/**
+ * BUTTONS
+ */
+.btn.btn-primary {
+  background-color: #b6c8a9;
+  border-color: #b6c8a9; }
+
+.btn.btn-primary:hover {
+  background-color: #C8DCBA;
+  border-color: #C8DCBA; }
+
+.btn.btn-secondary {
+  background-color: #eee;
+  border-color: #aeaeae; }
+
+.btn.btn-secondary.active {
+  background-color: #E2DEDE;
+  border-color: #aeaeae; }
+
+.btn.btn-secondary:hover {
+  background-color: #e3e3e3;
+  border-color: #aeaeae; }
+
+/**
+ * MATERIAL DESIGN
+ * http://google.github.io/material-design-icons/
+ */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url("/assets/fonts/materialdesign/MaterialIcons-Regular.eot");
+  /* For IE6-8 */
+  src: local("Material Icons"), local("MaterialIcons-Regular"), url("/assets/fonts/materialdesign/MaterialIcons-Regular.woff2") format("woff2"), url("/assets/fonts/materialdesign/MaterialIcons-Regular.woff") format("woff"), url("/assets/fonts/materialdesign/MaterialIcons-Regular.ttf") format("truetype"); }
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: 'liga'; }
+
+/* Rules for sizing the icon. */
+.material-icons.md-18 {
+  font-size: 18px; }
+
+.material-icons.md-22 {
+  font-size: 22px; }
+
+.material-icons.md-24 {
+  font-size: 24px; }
+
+.material-icons.md-36 {
+  font-size: 36px; }
+
+.material-icons.md-48 {
+  font-size: 48px; }
+
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark {
+  color: rgba(0, 0, 0, 0.54); }
+
+.material-icons.md-dark.md-inactive {
+  color: rgba(0, 0, 0, 0.26); }
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light {
+  color: white; }
+
+.material-icons.md-light.md-inactive {
+  color: rgba(255, 255, 255, 0.3); }
