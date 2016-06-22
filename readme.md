@@ -9,7 +9,7 @@
 - `make install-server` will install npm dependencies for `server`
 
 ##Configuration
-- The project uses the [config](https://www.npmjs.com/package/config) library.  We do not include any `config/default|test|production.json` files because configuration files should never be committed to source control.  For that reason, the .gitignore file contains `server|client/config/**/*.*`
+- The project uses the [config](https://www.npmjs.com/package/config) library.  We do not include any `config/default|test|production.json` files because configuration files should never be committed to source control.  For that reason, the .gitignore file contains `**/config/*`
 - A sample `server/config/default.json`:
 
 >
