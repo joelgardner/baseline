@@ -7,6 +7,9 @@
 - `make` will install npm dependencies for both `client` and `server`
 - `make install-client` will install npm dependencies for `client`
 - `make install-server` will install npm dependencies for `server`
+- `make run-server-development` will start the Node.js server
+- `make run-webpack-dev-server` will start the WebpackDevServer, which is handy for quick `bundle.js` compilation times during development.
+
 
 ##Configuration
 - The project uses the [config](https://www.npmjs.com/package/config) library.  We do not include any `config/default|test|production.json` files because configuration files should never be committed to source control.  For that reason, the .gitignore file contains `**/config/*`
@@ -22,8 +25,8 @@
         "password": "p@ssw0rd"
       },
       "token": {
-        "secret": "tellmeasecret"
-      },
+        "secret": "changeme!"
+      }
     }
 
 ###Client:
