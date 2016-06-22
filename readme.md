@@ -30,12 +30,13 @@
     }
 
 ###Client:
-- Built with React, Redux, GraphQL
+- Built with ECMAScript 2015, React, Redux, GraphQL
 
 
 ###Server:
-- Resource packing (Webpack and WebpackDevServer)
-- User authentication (JWT)
+- Resource packing ([Webpack](https://webpack.github.io/) and [WebpackDevServer](https://webpack.github.io/docs/webpack-dev-server.html))
+- User authentication ([Passport](http://passportjs.org/)/JWT(https://jwt.io/))
+- [Bookshelf.js](http://bookshelfjs.org/)
 
 
 ###Database:
