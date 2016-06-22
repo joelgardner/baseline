@@ -40,9 +40,9 @@
 
 
 ###Database:
-- PostgreSQL
-- Database migrations (Postgrator)
+- [PostgreSQL](https://www.postgresql.org/)
+- Database migrations ([Postgrator](https://github.com/rickbergfalk/postgrator))
 
 
 ### TODO:
-- Unit tests (mocha)
+- Unit tests ([mocha](https://mochajs.org/))
