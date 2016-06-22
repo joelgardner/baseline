@@ -5,8 +5,8 @@
 
 ##Installation:
 - `make` will install npm dependencies for both `client` and `server` by running both of the following steps:
- - `make install-client` will install npm dependencies for `client`
- - `make install-server` will install npm dependencies for `server`
+  - `make install-client` will install npm dependencies for `client`
+  - `make install-server` will install npm dependencies for `server`
 - `make run-dev-server` will start the Node.js server
 - `make run-webpack-dev-server` will start the WebpackDevServer, which is handy for quick `bundle.js` compilation times during development.
 
