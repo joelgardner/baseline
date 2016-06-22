@@ -2,15 +2,17 @@
 install 					: install-server install-client
 
 install-server 		: server/package.json
-										npm install server; 			\
-										mv node_modules/ server/
+										cd server;		\
+										npm install;  \
+										cd ..;				\
 
 install-client		:	client/package.json
-										npm install client;				\
-										mv node_modules/ client/
+										cd client;		\
+										npm install;	\
+										cd ..;				\
 
 install-database	:	database/createdb.sql
-										/Library/PostgreSQL/9.5/pgAdmin3.app/Contents/SharedSupport/psql \
+										psql 											\
 										--host localhost 					\
 										--port 5432 							\
 										--username postgres 			\
