@@ -30,7 +30,7 @@
     }
 
 ###Client:
-- Built with ECMAScript 2015, React, Redux, GraphQL
+- Built with [ECMAScript 2015](http://es6-features.org/), [React](https://facebook.github.io/react/), [Redux](https://github.com/reactjs/redux), [GraphQL](http://graphql.org/docs/getting-started/)
 
 
 ###Server:
