@@ -35,7 +35,7 @@
 
 ###Server:
 - Resource packing ([Webpack](https://webpack.github.io/) and [WebpackDevServer](https://webpack.github.io/docs/webpack-dev-server.html))
-- User authentication ([Passport](http://passportjs.org/)/JWT(https://jwt.io/))
+- User authentication ([Passport](http://passportjs.org/)/[JWT](https://jwt.io/))
 - [Bookshelf.js](http://bookshelfjs.org/)
 
 
