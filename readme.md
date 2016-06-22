@@ -12,18 +12,19 @@
 - The project uses the [config](https://www.npmjs.com/package/config) library.  We do not include any `config/default|test|production.json` files because configuration files should never be committed to source control.  For that reason, the .gitignore file contains `server|client/config/**/*.*`
 - A sample `server/config/default.json`:
 
-```{
-  "database": {
-    "host": "localhost",
-    "port": 5984,
-    "name": "mydatabase",
-    "user": "myuser",
-    "password": "p@ssw0rd"
-  },
-  "token": {
-    "secret": "tellmeasecret"
-  },
-}```
+>
+    {
+      "database": {
+        "host": "localhost",
+        "port": 5984,
+        "name": "mydatabase",
+        "user": "myuser",
+        "password": "p@ssw0rd"
+      },
+      "token": {
+        "secret": "tellmeasecret"
+      },
+    }
 
 ###Client:
 - Built with React, Redux, GraphQL
