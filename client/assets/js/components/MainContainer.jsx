@@ -7,21 +7,21 @@ import { connect } from 'react-redux'
 
 
 const routes = {
-	'/login' : LoginContainer,
-	'/signup' : SignupContainer
+  '/login' : LoginContainer,
+  '/signup' : SignupContainer
 };
 
 const getViewForRoute = (route) => {
 
-	// TODO: normalize the route to pass parameters
+  // TODO: normalize the route to pass parameters
 
-	return routes[route] || Error;
+  return routes[route] || Error;
 }
 
 const mapStateToProps = (state) => {
-	return {
-		view : getViewForRoute(state.route)
-	}
+  return {
+    view : getViewForRoute(state.route)
+  }
 }
 
 const MainContainer = connect(mapStateToProps)(Main)

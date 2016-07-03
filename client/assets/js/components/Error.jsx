@@ -4,9 +4,9 @@ import React from 'react'
 let Error = ({ dispatch }) => {
 
   return (
-  	
+
     <div>
-		Error
+      Error
     </div>
   )
 }
