@@ -19,7 +19,7 @@
 - Navigate to `http://localhost:9000` to view the application
 - Navigate to `http://localhost:9001` to bring up [GraphiQL](https://github.com/graphql/graphiql), GraphQL's interactive IDE for testing GraphQL queries
 
-###Building (note: generally not necessary to get up and running locally:
+###Building (generally not necessary to get up and running locally)
 - `make build-client` will build two files:
   - `/assets/js/bundle.js` (entry point: `/assets/js/init.js`)
   - `/style/baseline.css` (entry point: `/style/sass/baseline.scss`)
