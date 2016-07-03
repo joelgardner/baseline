@@ -10,6 +10,8 @@
 - `make run-dev-server` will start the Node.js server
 - `make run-webpack-dev-server` will start the WebpackDevServer, which is handy for quick `bundle.js` compilation times during development.
 
+###Visit `http://localhost:9000/assets`
+
 
 ##Configuration
 - The project uses the [config](https://www.npmjs.com/package/config) library.  We do not include any `config/default|test|production.json` files because configuration files should never be committed to source control.  For that reason, the .gitignore file contains `**/config/*`
