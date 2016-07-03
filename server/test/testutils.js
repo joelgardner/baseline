@@ -54,13 +54,4 @@ describe('util promise helpers', function () {
       .then(done);
     });
   });
-
-  describe('unwrap', function() {
-
-    it('should resolve if its input resolves to null', function(done) {
-      _.promisifyValue(null)
-      .then(_.rejectIfNotNull(_.promisifyValue))
-      .then(done);
-    });
-  });
 });
