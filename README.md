@@ -1,7 +1,7 @@
 ----
 # Node.js app starter kit
 
-##### This project aims to serve as a basis for new Node.js projects.  It has many tools and features that a typical modern Node.js web applications needs:
+##### This project aims to serve as a basis for new Node.js projects.  It has many tools and features that a typical modern Node.js web applications needs.
 
 ### Quick Start:
 - Clone the repo
