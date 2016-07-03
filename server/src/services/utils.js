@@ -185,16 +185,9 @@ exports._ = {
 
     function _capture(promise_ish, objRef, key, input) {
       return new Promise(function(resolve, reject) {
-        console.log('capturing ' + key);
-        // var promise = promise_ish.then ? promise_ish : promise_ish.call({}, input);
-        // if (!promise) return;   // a reject will result in an undefined promise; TODO: figure out why
-        // return promise.then(function(result) {
-        //   objRef[key] = result;
-        //   resolve(result);
-        // }, reject);
         return exports._.unwrap(promise_ish)(input).then(function(result) {
           objRef[key] = result;
-          resolve(input);
+          resolve(result);
         }, reject);
       });
     }
