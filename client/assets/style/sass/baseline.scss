@@ -20,7 +20,7 @@ body {
 
 /**
  * CARDS
- */ 
+ */
 
 .card {
 	background-color: $contentBackgroundColor;
@@ -102,7 +102,7 @@ nav.subnav {
 			background-color: $buttonSecondaryHover;
 			border-color: $buttonSecondaryBorder;
 		}
-	}	
+	}
 }
 
 
@@ -115,12 +115,12 @@ nav.subnav {
   font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
-  src: url('/assets/fonts/materialdesign/MaterialIcons-Regular.eot'); /* For IE6-8 */
+  src: url('/fonts/materialdesign/MaterialIcons-Regular.eot'); /* For IE6-8 */
   src: local('Material Icons'),
        local('MaterialIcons-Regular'),
-       url('/assets/fonts/materialdesign/MaterialIcons-Regular.woff2') format('woff2'),
-       url('/assets/fonts/materialdesign/MaterialIcons-Regular.woff') format('woff'),
-       url('/assets/fonts/materialdesign/MaterialIcons-Regular.ttf') format('truetype');
+       url('/fonts/materialdesign/MaterialIcons-Regular.woff2') format('woff2'),
+       url('/fonts/materialdesign/MaterialIcons-Regular.woff') format('woff'),
+       url('/fonts/materialdesign/MaterialIcons-Regular.ttf') format('truetype');
 }
 
 .material-icons {

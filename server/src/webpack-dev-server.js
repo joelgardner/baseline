@@ -34,11 +34,11 @@ var webpack = require('webpack'),
 
 // create the server
 var devServer = new WebpackDevServer(compiler, {
-    contentBase : '../client',
+    contentBase : '../client/assets',
     proxy : {
         '/graphql' : 'http://localhost:9001'
     },
-    publicPath : '/assets',
+    publicPath : '/',
     stats : {
         colors : true
     }
