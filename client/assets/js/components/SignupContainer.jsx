@@ -1,12 +1,12 @@
 import Signup from './Signup.jsx'
 import { connect } from 'react-redux'
-import { 
-	signUp 
+import {
+  signUp
 } from '../actions/actions';
 
 const mapStateToProps = (state) => {
-  return { 
-  	errors : state.errors
+  return {
+    errors : state.errors
   };
 }
 
