@@ -7,7 +7,7 @@
 - Clone the repo
 - Run `make`, `make run-dev-server`, and `make run-webpack-dev-server`
 - See the **[Configuration](#configuration)** section below (required)
-- running `make install-database` will create the database (assuming you have a PostgreSQL backend set up and correct [configuration](#configuration) info)
+- Run `make install-database` to create/update the database (assuming you have a PostgreSQL backend set up and correct [configuration](#configuration) info) via [Postgrator](https://github.com/rickbergfalk/postgrator).
 - Navigate to `http://localhost:9000`
 
 ##Installation:
