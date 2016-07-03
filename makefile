@@ -19,12 +19,12 @@ install-database	:	database/createdb.sql
 										bugmo 										\
 										-f database/createdb.sql
 
-build-client	:	client/webpack.config.js
-								cd client;			\
+build-client	:	client/src/webpack.config.js
+								cd client/src;			\
 								webpack;
 
-run-webpack-dev-server 	: client/webpack-dev-server.js
-													cd client;											\
+run-webpack-dev-server 	: client/src/webpack-dev-server.js
+													cd client/src;											\
 													node webpack-dev-server.js;
 
 run-dev-server  	: server/src/index.js
