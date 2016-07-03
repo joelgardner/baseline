@@ -1,109 +1,155 @@
 
 var express = require('express');
-var graphqlHTTP = require('express-graphql');
-var graphql = require('graphql');
-var GraphQLSchema = graphql.GraphQLSchema;
-var GraphQLObjectType = graphql.GraphQLObjectType;
-var GraphQLString = graphql.GraphQLString;
-var GraphQLInt = graphql.GraphQLInt;
+var graphqlHTTP = require('express-graphql'),
+    graphql = require('graphql'),
+    GraphQLSchema = graphql.GraphQLSchema,
+    GraphQLObjectType = graphql.GraphQLObjectType,
+    GraphQLString = graphql.GraphQLString,
+    GraphQLBoolean = graphql.GraphQLBoolean,
+    GraphQLInt = graphql.GraphQLInt;
+var User = require('./data/models/user').Model,
+    Organization = require('./data/models/organization').Model,
+    Contact = require('./data/models/contact').Model;
 
-var goldbergs = {
- 1: {
-   character: "Beverly Goldberg",
-   actor: "Wendi McLendon-Covey",
-   role: "matriarch",
-   traits: "embarrassing, overprotective",
-   id: 1
- },
- 2: {
-   character: "Murray Goldberg",
-   actor: "Jeff Garlin",
-   role: "patriarch",
-   traits: "gruff, lazy",
-   id: 2
- },
- 3: {
-   character: "Erica Goldberg",
-   actor: "Hayley Orrantia",
-   role: "oldest child",
-   traits: "rebellious, nonchalant",
-   id: 3
- },
- 4: {
-   character: "Barry Goldberg",
-   actor: "Troy Gentile",
-   role: "middle child",
-   traits: "dim-witted, untalented",
-   id: 4
- },
- 5: {
-   character: "Adam Goldberg",
-   actor: "Sean Giambrone",
-   role: "youngest child",
-   traits: "geeky, pop-culture obsessed",
-   id: 5
- },
- 6: {
-   character: "Albert 'Pops' Solomon",
-   actor: "George Segal",
-   role: "grandfather",
-   traits: "goofy, laid back",
-   id: 6
- }
-}
-
-var goldbergType = new GraphQLObjectType({
-  name: "Goldberg",
-  description: "Member of The Goldbergs",
+var ContactType = new GraphQLObjectType({
+  name: 'Contact',
+  description: 'Object representing a row in the contacts table.',
   fields: {
-   character: {
-     type: GraphQLString,
-     description: "Name of the character",
-   },
-   actor: {
-     type: GraphQLString,
-     description: "Actor playing the character",
-   },
-   role: {
-     type: GraphQLString,
-     description: "Family role"
-   },
-   traits: {
-     type: GraphQLString,
-     description: "Traits this Goldberg is known for"
-   },
-   id: {
-     type: GraphQLInt,
-     description: "ID of this Goldberg"
-   }
- }
+    id: {
+      type: GraphQLString,
+      description: 'Id of the contact'
+    },
+    firstName: {
+      type: GraphQLString,
+      description: 'The contact\'s first name'
+    },
+    lastName: {
+      type: GraphQLString,
+      description: 'The contact\'s last name'
+    },
+    email: {
+      type: GraphQLString,
+      description: 'The contact\'s email'
+    },
+    companyName: {
+      type: GraphQLString,
+      description: 'The contact\'s company name'
+    },
+    address1: {
+      type: GraphQLString,
+      description: 'The contact\'s address\' first line'
+    },
+    address2: {
+      type: GraphQLString,
+      description: 'The contact\'s address\' second line'
+    },
+    zip: {
+      type: GraphQLString,
+      description: 'The contact\'s postal code'
+    },
+    state: {
+      type: GraphQLString,
+      description: 'The contact\'s state'
+    },
+    country: {
+      type: GraphQLString,
+      description: 'The contact\'s country'
+    }
+  }
 });
 
-var queryType = new GraphQLObjectType({
-  name: "query",
-  description: "Goldberg query",
+var UserType = new GraphQLObjectType({
+  name: 'User',
+  description: 'Object representing a row in the users table.',
   fields: {
-    goldberg: {
-      type: goldbergType,
+    id: {
+      type: GraphQLString,
+      description: 'Id of the user'
+    },
+    email: {
+      type: GraphQLString,
+      description: 'Email'
+    },
+    isActive: {
+      type: GraphQLBoolean,
+      description: 'Indicates whether or not the user is active.'
+    },
+    isVerified: {
+      type: GraphQLBoolean,
+      description: 'Indicates whether or not a user\'s email has been verified.'
+    }
+  }
+});
+
+var OrganizationType = new GraphQLObjectType({
+  name: 'Organization',
+  description: 'Object representing a row in the organizations table.',
+  fields: {
+    id: {
+      type: GraphQLString,
+      description: 'Id of the organization'
+    },
+    owner: {
+      type: UserType,
+      description: 'The owning user of the organization (usually the person who pays the bills).'
+    },
+    description: {
+      type: GraphQLString,
+      description: 'A text description of the organization'
+    },
+    isActive: {
+      type: GraphQLBoolean,
+      description: 'Indicates whether or not the user is active.'
+    },
+    isVerified: {
+      type: GraphQLBoolean,
+      description: 'Indicates whether or not a user\'s email has been verified.'
+    }
+  }
+});
+
+
+var BaselineQueryType = new GraphQLObjectType({
+  name: "Baseline",
+  description: "Baseline toplevel query",
+  fields: {
+    user: {
+      type: UserType,
       args: {
         id: {
-          type: GraphQLInt
+          type: GraphQLString
         }
       },
       resolve: function(_, args){
-        return getGoldberg(args.id)
+        return new Promise(function(resolve, reject) {
+          User.forge({ id: args.id }).fetch()
+            .then(function(org) {
+                resolve(org.toJSON());
+              }, reject);
+        });
+      }
+    },
+    organization: {
+      type: OrganizationType,
+      args: {
+        id: {
+          type: GraphQLString
+        }
+      },
+      resolve: function(_, args) {
+        return new Promise(function(resolve, reject) {
+          Organization.forge({ id: args.id }).fetch()
+            .then(function(org) {
+              resolve(org.toJSON());
+            }, reject);
+        });
       }
     }
   }
 });
 
-function getGoldberg(id) {
- return goldbergs[id]
-}
-
-
 var schema = new GraphQLSchema({
- query: queryType
+ query: BaselineQueryType
 });
 
 var graphQLServer = express();

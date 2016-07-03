@@ -3,14 +3,14 @@ var utils = require('../../services/utils'),
   Dates = utils.Dates;
 
 var Organization =
-exports.Organization = bookshelf.Model.extend({
+exports.Model = bookshelf.Model.extend({
   tableName: 'organizations'
 });
 
 exports.create = function(companyName) {
+  console.log("here?");
   return Organization.forge({
     name:           companyName,
-    subscriptionstatusid:   1,
     datecreated:      Dates.now()
   })
   .save();

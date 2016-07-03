@@ -72,44 +72,33 @@ exports.signup = user => new Promise((resolve, reject) => {
   // capture intermediate promise results
   var captured = {};
 
-  /**
-  search for a user with that email
-  **/
+  // search for a user with that email
   return exports.findOneByEmail(user.email)
 
-    /**
-    if the email already exists, send back a validation message to the client.
-    otherwise, create an Organization based on the given company name
-    **/
+    // if the email already exists, send back a validation message to the client.
+    // otherwise, create an Organization based on the given company name
     .then(_.capture(existing => existing
       ? reject({ email: 'Email already exists.' })
       : Organization.create(user.companyName),
       captured, 'organization'))
 
-    /**
-    next we need a Contact for the user
-    **/
+    // next, we need a Contact for the user
     .then(_.capture(() => Contact.create({
         companyname: user.companyName,
         email: user.email,
         datecreated: Dates.now()
       }), captured, 'contact'))
 
-    /**
-    hash the given password
-    **/
+    // hash the given password
     .then(() => Security.hashPassword(user.password))
 
-    /**
-    finally, create our user
-    **/
+    // finally, create our user
     .then(hashedPassword => User.forge({
         email: user.email,
         password: hashedPassword,
         contactid: captured.contact.id,
         organizationid: captured.organization.id,
-        createdat: Dates.now(),
-        authtypeid: 1
+        createdat: Dates.now()
       }).save())
 
     .then(resolve, handleDatabaseException(reject))
