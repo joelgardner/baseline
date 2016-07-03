@@ -111,10 +111,8 @@ Helper methods around errors, etc.
 exports.Http = {
   handleException: function (res) {
     return function(ex) {
-      /**
-      this handler is called when a programming exception occurs.
-      do not send these exceptions to the client
-      **/
+      // called when a programming exception occurs.
+      // do not send these exceptions to the client
       console.log("EXCEPTION: \n" + ex + "\n" + JSON.stringify(ex));
       res.status(503).end("Something bad happened.");
     };
@@ -187,6 +185,7 @@ exports._ = {
 
     function _capture(promise_ish, objRef, key, input) {
       return new Promise(function(resolve, reject) {
+        console.log('capturing ' + key);
         // var promise = promise_ish.then ? promise_ish : promise_ish.call({}, input);
         // if (!promise) return;   // a reject will result in an undefined promise; TODO: figure out why
         // return promise.then(function(result) {
@@ -194,11 +193,7 @@ exports._ = {
         //   resolve(result);
         // }, reject);
         return exports._.unwrap(promise_ish)(input).then(function(result) {
-          // reject if not null
-          if (result !== null) return reject(result);
-
-          // we resolve with the INPUT and not the result (which is null)
-          // this is handy for performing validation and other ad-hoc operations in routes
+          objRef[key] = result;
           resolve(input);
         }, reject);
       });

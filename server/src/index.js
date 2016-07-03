@@ -44,7 +44,7 @@ INIT SERVER
 **/
 
 app.listen(process.env.PORT || 9000);
-console.log('Bugmo.to is running.');
+console.log('Baseline App is running.');
 
 
 /**
