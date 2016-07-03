@@ -23,7 +23,6 @@ create table Organizations (
     Name        text not null,
     Description text,
     IsActive        boolean,
-    SubscriptionId int not null,
     DateCreated     timestamp not null,
     DateModified    timestamp default current_timestamp
 );
