@@ -6,8 +6,8 @@
 ### Quick Start:
 - Clone the repo
 - Run `make`, `make run-dev-server`, and `make run-webpack-dev-server`
-- See the **[Configuration](#configuration)** section below
-- Assuming you have a PostgreSQL backend, see the `make install-database` installation step below
+- See the **[Configuration](#configuration)** section below (required)
+- running `make install-database` will create the database (assuming you have a PostgreSQL backend set up and correct [configuration](#configuration) info)
 - Navigate to `http://localhost:9000`
 
 ##Installation:
@@ -16,7 +16,7 @@
   - `make install-server` will install npm dependencies for `server`
 - `make run-dev-server` will start the Node.js server
 - `make run-webpack-dev-server` will start the WebpackDevServer, which is handy for quick `bundle.js` compilation times during development.
-- `make install-database` will use `psql` to connect to your database and execute `createdb.sql`.  To use it, you must _temporarily_ update the makefile with your database info/credentials (**do not** commit the change to source control).
+- `make install-database` will use `psql` to connect to your database and execute `createdb.sql`.  It uses database information and credentials from your `default|test|production.json` config files (see [Configuration](#configuration).
 
 ###Usage:
 - Navigate to `http://localhost:9000` to view the application

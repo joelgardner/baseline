@@ -11,13 +11,9 @@ install-client		:	client/package.json
 										npm install;	\
 										cd ..;				\
 
-install-database	:	database/createdb.sql
-										psql 											\
-										--host localhost 					\
-										--port 5432 							\
-										--username postgres 			\
-										bugmo 										\
-										-f database/createdb.sql
+install-database	:	database/migrations/0001.do.createDatabase.sql
+										cd server; 							\
+										./tools/migrate;				\
 
 build-client	:	client/src/webpack.config.js
 								cd client/src;			\

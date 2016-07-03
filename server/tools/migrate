@@ -13,12 +13,9 @@ postgrator.setConfig({
 });
 
 postgrator.migrate('max', function (err, migrations) {
-    if (err) {
-        console.log('Error: ' + err)
-    } else {
-        console.log('Migrations: ' + migrations)
-    }
+    if (err) console.log('Error: ' + err)
+    else console.log('Migrations: ' + JSON.stringify(migrations, null, ' '))
     postgrator.endConnection(function () {
-        console.log("Database migrations done!")
+        console.log('Successfully completed database migrations.')
     });
 });
