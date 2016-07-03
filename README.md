@@ -60,6 +60,8 @@
 - [PostgreSQL](https://www.postgresql.org/)
 - Database migrations ([Postgrator](https://github.com/rickbergfalk/postgrator))
 
+###Tests:
+- Run `npm test` in `baseline/server` to run unit-tests using the [Mocha](https://mochajs.org/) framework
 
 ### TODO:
-- Unit tests ([mocha](https://mochajs.org/))
+- Client-side tests
