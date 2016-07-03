@@ -4,14 +4,14 @@
   "description": "Node.js app in front of PostgreSQL.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "./node_modules/mocha/bin/mocha"
   },
   "repository": {
     "type": "git",
-    "url": "f"
+    "url": "https://github.com/joelgardner/baseline"
   },
   "keywords": [
-    "f"
+    "server nodejs graphql"
   ],
   "author": "William Joel Gardner",
   "license": "ISC",
@@ -19,6 +19,7 @@
     "bcrypt": "^0.8.6",
     "body-parser": "^1.15.1",
     "bookshelf": "^0.9.4",
+    "chai": "^3.5.0",
     "config": "^1.20.1",
     "express": "^4.13.4",
     "express-graphql": "^0.5.1",
@@ -26,6 +27,7 @@
     "graphql": "^0.5.0",
     "jsonwebtoken": "^7.0.0",
     "knex": "^0.10.0",
+    "mocha": "^2.5.3",
     "node-uuid": "^1.4.7",
     "passport": "^0.3.2",
     "passport-json": "^1.2.0",

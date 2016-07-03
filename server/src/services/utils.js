@@ -150,28 +150,6 @@ exports._ = {
     });
   },
 
-  /**
-  `synchronousMethod` must be a synchronous function; it is wrapped in a promise
-  so that its return value can be piped into another promise.
-  **/
-  promisifySynchronousMethod: function(synchronousMethod) {
-
-    // helper function to allow receiving of previous promise's result
-    function _promisifySynchronousMethod (synchronousMethod, input) {
-      return new Promise(function(resolve, reject) {
-        try {
-          var output = synchronousMethod.call({}, input);
-          output && output.hasErrors ? reject(output) : resolve(output);
-        }
-        catch (e) {
-          reject(e);
-        }
-      });
-    }
-
-    return _promisifySynchronousMethod.bind(undefined, synchronousMethod)
-  },
-
 
   /**
   `promise_ish`: reference to a function that returns a promise
@@ -185,7 +163,7 @@ exports._ = {
 
     function _capture(promise_ish, objRef, key, input) {
       return new Promise(function(resolve, reject) {
-        return exports._.unwrap(promise_ish)(input).then(function(result) {
+        return unwrap(promise_ish)(input).then(function(result) {
           objRef[key] = result;
           resolve(result);
         }, reject);
@@ -194,7 +172,6 @@ exports._ = {
 
     var ref = _capture.bind(undefined, promise_ish, objRef, key);
     if (promise_ish && promise_ish.then) {
-      console.log('immediately invoking promise in capture');
       return ref();
     }
     return ref;
@@ -211,7 +188,7 @@ exports._ = {
     // helper function to allow receiving of previous promise's result
     return function _rejectIfNotNull (input) {
       return new Promise(function(resolve, reject) {
-        return exports._.unwrap(promise_ish)(input).then(function(result) {
+        return unwrap(promise_ish)(input).then(function(result) {
           // reject if not null
           if (result !== null) return reject(result);
 
@@ -237,9 +214,11 @@ exports._ = {
         }, reject);
       });
     }
-  },
+  }
+};
 
-  unwrap: (wrapped) => function _unwrap(input) {
+function unwrap (wrapped) {
+  return function (input) {
     return new Promise(function(resolve, reject) {
       switch (typeof(wrapped)) {
 
@@ -256,13 +235,13 @@ exports._ = {
           collapse(wrapped(input)).then(resolve);
           break;
 
-        // if `wrapped` is a string or number, resolve with it
+        // if `wrapped` is a string|number|boolean|null, resolve with it
         default:
           resolve(wrapped);
       }
     });
   }
-};
+}
 
 /**
 Collapse is like flatMap.  TODO: rename it to flatMap?
