@@ -7,12 +7,12 @@ module.exports = {
     },
     module: {
         loaders: [{
-        	test: __dirname,
+          test: __dirname,
             loader: 'babel-loader',
             exclude: /(node_modules|bower_components)/,
             query: {
-				presets: ['react', 'es2015']
-			}
+        presets: ['react', 'es2015']
+      }
         },
         {
             test: /\.scss$/,
