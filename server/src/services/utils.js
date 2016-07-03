@@ -202,14 +202,13 @@ exports._ = {
 
   /**
   `Promise` -> (`{}` -> `Promise`)
-  `promise` is a promise object that will be wrapped, and its input discarded.
-  The return value is a function whose input will be passed through instead of the ignored input
-  of the wrapped promise.
+  `promise` is a promise object that will be unwrapped, and its output discarded.
+  This allows for performing side-effects that depend on the output of an intermediate promise operation.
   **/
-  passThrough: promise => {
+  sideEffect: promise => {
     return input => {
       return new Promise(function(resolve, reject) {
-        return promise.then(function(ignored) {
+        return unwrap(promise)(input).then(function(ignored) {
           resolve(input);
         }, reject);
       });
