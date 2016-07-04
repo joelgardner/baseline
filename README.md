@@ -16,7 +16,7 @@
   - `make install-server` will install npm dependencies for `server`
 - `make run-dev-server` will start the Node.js server
 - `make run-webpack-dev-server` will start the WebpackDevServer, which is handy for quick `bundle.js` compilation times during development.
-- `make install-database` will use `psql` to connect to your database and execute `createdb.sql`.  It uses database information and credentials from your `default|test|production.json` config files (see [Configuration](#configuration).
+- `make install-database` will use `psql` to connect to your database and execute `createdb.sql`.  It uses database information and credentials from your `default|test|production.json` config files (see [Configuration](#configuration)).
 
 ###Usage:
 - Navigate to `http://localhost:9000` to view the application
